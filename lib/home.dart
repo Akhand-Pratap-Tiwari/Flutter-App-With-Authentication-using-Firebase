@@ -12,9 +12,9 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Image.asset('dash.png'),
+            Image.asset('assets/dash.png'),
             Text(
-              'Welcome!',
+              'Hello! Mothaf... There is Ligma behind you! 😈',
               style: Theme.of(context).textTheme.displaySmall,
             ),
           ],
