@@ -10,23 +10,32 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         actions: [
           IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<ProfileScreen>(
-                    builder: (context) => ProfileScreen(
-                      actions: [
-                        SignedOutAction((context) {
-                          Navigator.popUntil(context, (route) => route.isFirst); //Back to the first screen
-                          /*Navigator.of(context).pop() is ok when only one permanent route is present and it sends you back to the
-                            SignIn Page but if there are more routes then you have to use other methods*/
-                        })
-                      ],
+            icon: const Icon(Icons.person),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<ProfileScreen>(
+                  builder: (context) => ProfileScreen(
+                    appBar: AppBar(
+                      title: const Text('User Profile'),
                     ),
+                    actions: [
+                      SignedOutAction((context) {
+                        Navigator.popUntil(context,(route) =>route.isFirst); //Back to the first screen
+                        /*Navigator.of(context).pop() is ok when only one permanent route is present and it sends you back to the
+                          SignIn Page but if there are more routes then you have to use other methods*/
+                      })
+                    ],
+                    children: [
+                      const Divider(),
+                      Padding(padding: const EdgeInsets.all(2),
+                      child: Image.asset('assets/flutterfire_300x.png'),),
+                    ],
                   ),
-                );
-              },
-              icon: const Icon(Icons.person))
+                ),
+              );
+            },
+          ),
         ],
         automaticallyImplyLeading: false,
       ),
